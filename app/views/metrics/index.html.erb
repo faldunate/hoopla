@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Metrics</h1>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @metrics.each do |metric| %>
+                <tr>
+                    <td scope="row">
+                        <%= metric.name %>
+                    </td>
+                    <td>
+                        <%= link_to "Metric Values", metric_values_path(metric_id: metric.id) %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

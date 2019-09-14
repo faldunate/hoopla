@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Values</h1>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Valor</th>
+                <th scope="col">-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @values.each do |value| %>
+                <tr>
+                    <td><%= value.user.full_name %></td>
+                    <td><%= value.user.email %></td>
+                    <td><%= value.value || 0 %></td>
+                    <td>
+                        <% if value.value.present? %>
+                            <%= link_to 'edit value', edit_metric_value_path(value.id, metric_id: value.metric_id) %>
+                        <% else %>
+                            <%= link_to 'create value', new_metric_value_path(metric_id: value.metric_id, user_id: value.user.id) %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

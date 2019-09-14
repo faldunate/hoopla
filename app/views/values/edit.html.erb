@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            Edit Value
+        </div>
+        <div class="card-body">
+            <%= form_tag metric_value_path(@value.id, metric_id: @value.metric_id), method: :put do %>
+                <%= label_tag(:value, "value") %>
+                <%= text_field_tag :value, @value.value, class: 'form-control' %>
+                <%= submit_tag "Submit", class: 'btn btn-primary mt-4' %>
+            <% end %>
+        </div>
+    </div>
+</div>
